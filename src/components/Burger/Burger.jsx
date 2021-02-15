@@ -6,12 +6,10 @@ const burger = props => {
 	const { ingredients } = props;
 
 	const transformedIngredients = Object.keys(ingredients).map(igKey => {
-		return [...Array(ingredients)].map((_, i) => (
-			<BurgerIngredient key={igKey + 1} type={igKey} />
-		));
+		return [...Array(ingredients[igKey])].map((_, index) => {
+			return <BurgerIngredient key={igKey + index} type={igKey} />;
+		});
 	});
-
-	console.log(transformedIngredients);
 
 	return (
 		<div className={classes.Burger}>
