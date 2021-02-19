@@ -15,6 +15,7 @@ const buildControls = props => (
 				key={control.type}
 				added={() => props.addedIngredient(control.type)}
 				removed={() => props.removedIngredient(control.type)}
+				disabled={props.disabledInfo[control.type]}
 			/>
 		))}
 	</div>
