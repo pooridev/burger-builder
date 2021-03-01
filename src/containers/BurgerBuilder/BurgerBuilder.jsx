@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Burger from '../../components/Burger/Burger';
 import Aux from '../../hoc/Auxiliary';
-
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-
 import Modal from '../../components/UI/Modal/Modal';
 
 const INGREDIENT_PRICE = {
@@ -71,6 +69,14 @@ class BurgerBuilder extends Component {
 		this.setState({ purchasing: true });
 	};
 
+	purchaseCancelHandler = () => {
+		this.setState({ purchasing: false });
+	};
+
+	purchaseContinueHandler = () => {
+		alert('SENT POST REQ');
+	};
+
 	render() {
 		const ingredientsInfo = { ...this.state.ingredients };
 
@@ -79,8 +85,14 @@ class BurgerBuilder extends Component {
 		}
 		return (
 			<Aux>
-				<Modal show={this.state.purchasing}>
-					<OrderSummary ingredients={this.state.ingredients} />
+				<Modal
+					show={this.state.purchasing}
+					modalClosed={this.purchaseCancelHandler}>
+					<OrderSummary 
+						ingredients={this.state.ingredients} 
+						purchaseCanceled={this.purchaseCancelHandler}
+						purchaseContinued={this.purchaseContinueHandler}
+					/>
 				</Modal>
 				<Burger ingredients={this.state.ingredients} />
 				<BuildControls
