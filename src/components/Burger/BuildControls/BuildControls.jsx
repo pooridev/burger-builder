@@ -1,4 +1,5 @@
 import BuildControl from './BuildControl/BuildControl';
+import PropTypes from 'prop-types';
 import classes from './BuildControls.module.css';
 const controls = [
 	{ label: 'Cheese', type: 'cheese' },
@@ -29,5 +30,13 @@ const buildControls = props => (
 		</button>
 	</div>
 );
+buildControls.propTypes = {
+	price: PropTypes.number,
+	purchasable: PropTypes.bool,
+	ordered: PropTypes.func,
+	addedIngredient: PropTypes.func,
+	removedIngredient: PropTypes.func,
+	disabledInfo: PropTypes.object
+};
 
 export default buildControls;

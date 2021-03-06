@@ -1,4 +1,5 @@
 import classes from './Button.module.css';
+import PropTypes from 'prop-types';
 
 const button = props => (
 	<button
@@ -7,5 +8,8 @@ const button = props => (
 		{props.children}
 	</button>
 );
-
+button.propTypes = {
+	btnType: PropTypes.string,
+	clicked: PropTypes.func
+};
 export default button;
