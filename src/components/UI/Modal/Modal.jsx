@@ -16,4 +16,8 @@ const modal = props => (
 		</div>
 	</Aux>
 );
+modal.propTypes = {
+	modalClosed: PropTypes.func ,
+	show: PropTypes.bool
+}
 export default modal;
