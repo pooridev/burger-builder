@@ -3,7 +3,7 @@ import Logo from '../../Logo/Logo';
 import PropTypes from 'prop-types';
 import classes from './SideDrawer.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Aux from '../../../hoc/Auxiliary';
+import Aux from '../../../hoc/Auxiliary/Auxiliary';
 
 const SideDrawer = props => {
 	let attachedClassed = [classes.SideDrawer, classes.Close];
