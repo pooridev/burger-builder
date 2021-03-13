@@ -4,6 +4,8 @@ import Aux from '../../hoc/Auxiliary/Auxiliary';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Modal from '../../components/UI/Modal/Modal';
+import axios from 'axios';
+import instance from '../../axios-orders';
 
 const INGREDIENT_PRICE = {
 	salad: 1,
@@ -23,6 +25,10 @@ class BurgerBuilder extends Component {
 		purchasable: false,
 		purchasing: false
 	};
+
+	componentDidMount() {
+		axios.get('').then(res => console.log(res));
+	}
 
 	updatePurchaseState(ingredients) {
 		const sum = Object.keys(ingredients)
