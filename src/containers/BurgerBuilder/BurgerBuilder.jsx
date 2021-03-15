@@ -6,6 +6,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Modal from '../../components/UI/Modal/Modal';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const INGREDIENT_PRICE = {
 	salad: 1,
@@ -92,10 +93,10 @@ class BurgerBuilder extends Component {
 			},
 			deliveryMethod: 'fastest'
 		};
-		axios
-			.post('orders.json', order)
-			.then(response => this.setState({ loading: false, purchasing: false }))
-			.catch(error => this.setState({ loading: false, purchasing: false}));
+
+		axios.post('/orders.json', order)
+			.then(res => this.setState({ loading: false, purchasing: false }))
+			.catch(err => this.setState({ loading: false, purchasing: false }));
 	};
 
 	render() {
@@ -104,6 +105,7 @@ class BurgerBuilder extends Component {
 		for (let key in ingredientsInfo) {
 			ingredientsInfo[key] = ingredientsInfo[key] <= 0;
 		}
+
 		let orderSummary = (
 			<OrderSummary
 				ingredients={this.state.ingredients}
@@ -112,9 +114,11 @@ class BurgerBuilder extends Component {
 				price={this.state.totalPrice}
 			/>
 		);
+
 		if (this.state.loading) {
 			orderSummary = <Spinner />;
 		}
+
 		return (
 			<Aux>
 				<Modal
@@ -136,4 +140,4 @@ class BurgerBuilder extends Component {
 		);
 	}
 }
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
