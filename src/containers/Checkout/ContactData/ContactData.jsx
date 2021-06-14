@@ -30,7 +30,7 @@ class ContactData extends Component {
       },
       deliveryMethod: 'fastest'
     };
-
+    console.log(order);
     axios
       .post('/orders.json', order)
       .then(res => {
