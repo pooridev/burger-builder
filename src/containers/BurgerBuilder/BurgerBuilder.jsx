@@ -38,33 +38,20 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    const queryParams = [];
-    for (let i in this.props.ingredients) {
-      queryParams.push(
-        encodeURIComponent(i) +
-          '=' +
-          encodeURIComponent(this.props.ingredients[i])
-      );
-    }
-    queryParams.push('price=' + this.state.totalPrice);
-    const queryString = queryParams.join('&');
-    this.props.history.push({
-      pathname: '/checkout',
-      search: '?' + queryString
-    });
+    this.props.history.push('/checkout');
   };
 
-  componentDidMount() {
-    axios
-      .get(
-        'https://burger-builder-ff829-default-rtdb.firebaseio.com/ingredients.json'
-      )
-      .then(response => {
-        // this.setState({ ingredients: response.data });
-        this.props.setIngredients(response.data);
-      })
-      .catch(err => this.setState({ error: true }));
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get(
+  //       'https://burger-builder-ff829-default-rtdb.firebaseio.com/ingredients.json'
+  //     )
+  //     .then(response => {
+  //       // this.setState({ ingredients: response.data });
+  //       this.props.setIngredients(response.data);
+  //     })
+  //     .catch(err => this.setState({ error: true }));
+  // }
 
   render() {
     const ingredientsInfo = { ...this.props.ingredients };

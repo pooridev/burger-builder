@@ -13,7 +13,6 @@ class OrderSummary extends Component {
 				</li>
 			);
 		});
-		console.log(this.props)
 		return (
 			<Aux>
 				<h3>Your Order</h3>
