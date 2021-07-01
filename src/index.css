@@ -5,3 +5,8 @@ body {
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 }
+
+.center {
+	margin: auto;
+	text-align: center;
+}
