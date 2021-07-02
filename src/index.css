@@ -1,12 +1,22 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
-	margin: 0;
-	font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .center {
-	margin: auto;
-	text-align: center;
+  margin: auto;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b1b1b1;
+  border-radius: 5px;
 }
